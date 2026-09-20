@@ -1,0 +1,36 @@
+name: Sync calendar with Holidu
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update calendar from Holidu iCal feed
+        run: python3 update_calendar.py
+
+      - name: Commit changes if calendar updated
+        run: |
+          git config user.name "vista-azul-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet -- index.html; then
+            git add index.html
+            git commit -m "Auto-sync: actualizar calendario de disponibilidad"
+            git push
+          else
+            echo "Sin cambios en el calendario."
+          fi
