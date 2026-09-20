@@ -192,6 +192,37 @@
   .cal-day.unavail{ background:var(--terracotta); color:#fff; font-weight:600; }
   .cal-day.today{ box-shadow:inset 0 0 0 2px var(--azure-bright); font-weight:700; }
 
+  /* ---- extra services ---- */
+  .extra-services{
+    display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:26px;
+  }
+  @media (max-width:720px){ .extra-services{ grid-template-columns:1fr; } }
+  .extra-card{
+    background:var(--card-bg); border:1px solid var(--line); border-radius:14px;
+    padding:26px;
+  }
+  .extra-icon{
+    width:34px; height:34px; color:var(--azure-deep); margin-bottom:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .extra-icon{ color:var(--azure-bright); }
+  }
+  :root[data-theme="dark"] .extra-icon{ color:var(--azure-bright); }
+  .extra-card h3{ margin:0 0 8px; font-size:1.1rem; font-weight:600; }
+  .extra-card p{ margin:0; font-size:0.92rem; opacity:0.85; }
+  .extra-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px;
+    color:var(--azure-deep); text-decoration:none; font-weight:600; font-size:0.92rem;
+    border-bottom:1px solid transparent;
+  }
+  .extra-link:hover{ border-bottom-color:var(--azure-deep); }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .extra-link{ color:var(--azure-bright); }
+    :root:not([data-theme="light"]) .extra-link:hover{ border-bottom-color:var(--azure-bright); }
+  }
+  :root[data-theme="dark"] .extra-link{ color:var(--azure-bright); }
+  :root[data-theme="dark"] .extra-link:hover{ border-bottom-color:var(--azure-bright); }
+
   /* ---- contact ---- */
   .contact{ background:var(--sand); }
   .contact-grid{
@@ -481,6 +512,53 @@
 
     <p class="form-note" data-lang="es" class="active" style="text-align:center; margin-top:16px;">Calendario actualizado a fecha de 20 sep 2026. Puede haber reservas nuevas desde entonces — escríbenos y te confirmamos al momento la disponibilidad real de tus fechas.</p>
     <p class="form-note" data-lang="en" style="text-align:center; margin-top:16px;">Calendar updated as of 20 Sep 2026. New bookings may have come in since then — message us and we'll confirm real-time availability for your dates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title" data-lang="es" class="active">Servicios extra</h2>
+    <h2 class="section-title" data-lang="en">Extra services</h2>
+    <p class="lead" data-lang="es" class="active">Para que tu estancia sea aún más fácil, ofrecemos estos servicios opcionales.</p>
+    <p class="lead" data-lang="en">To make your stay even easier, we offer these optional services.</p>
+
+    <div class="extra-services">
+      <div class="extra-card">
+        <svg class="extra-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 16h13l3-5H7L3 16Z"/>
+          <path d="M6 16v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1"/>
+          <path d="M14 18v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1"/>
+          <circle cx="8" cy="18.5" r="1.2"/>
+          <circle cx="16.5" cy="18.5" r="1.2"/>
+          <path d="M16 11V7a1 1 0 0 1 1-1h1.2a1 1 0 0 1 .9.55L21 11"/>
+        </svg>
+        <h3 data-lang="es" class="active">Shuttle al aeropuerto</h3>
+        <h3 data-lang="en">Airport shuttle</h3>
+        <p data-lang="es" class="active">Servicio de traslado (extra) desde/hacia el aeropuerto. Pregúntanos por disponibilidad y precio al reservar.</p>
+        <p data-lang="en">Transfer service (extra) to/from the airport. Ask us about availability and price when you book.</p>
+      </div>
+
+      <div class="extra-card">
+        <svg class="extra-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 16h16"/>
+          <path d="M5 16v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1"/>
+          <path d="M16 18v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1"/>
+          <path d="M5 16 6.5 9.5A2 2 0 0 1 8.4 8h7.2a2 2 0 0 1 1.9 1.5L19 16"/>
+          <path d="M8 8V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/>
+          <circle cx="8" cy="18.5" r="1.2"/>
+          <circle cx="17" cy="18.5" r="1.2"/>
+        </svg>
+        <h3 data-lang="es" class="active">Alquiler de coche</h3>
+        <h3 data-lang="en">Car rental</h3>
+        <p data-lang="es" class="active">Recomendamos O'Carrol Rent a Car España para moverte con comodidad por la Costa Blanca.</p>
+        <p data-lang="en">We recommend O'Carrol Rent a Car España to get around the Costa Blanca comfortably.</p>
+        <a class="extra-link" href="https://ocarrolrentespana.com/" target="_blank" rel="noopener">
+          <span data-lang="es" class="active">Ver alquiler de coches</span>
+          <span data-lang="en">See car rental</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
